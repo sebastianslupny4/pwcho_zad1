@@ -1,0 +1,38 @@
+name: Sebastian Slupny Zadanie 2 Build and Push Docker Images
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v1
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+
+      - name: Build and push Docker image (linux/amd64)
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: |
+            sebastianslupny/pwcho_zad1:amd64
+          platforms: linux/amd64
+
+      - name: Build and push Docker image (linux/arm64/v8)
+        uses: docker/build-push-action@v2
+        with:
+          context: .
+          push: true
+          tags: |
+            sebastianslupny/pwcho_zad1:arm64
+          platforms: linux/arm64/v8ź
