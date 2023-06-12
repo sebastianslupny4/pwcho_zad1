@@ -25,7 +25,7 @@ jobs:
           context: .
           push: true
           tags: |
-            sebastianslupny/pwcho_zad1:amd64
+            sebastianslupny4/pwcho_zad1:amd64
           platforms: linux/amd64
 
       - name: Build and push Docker image (linux/arm64/v8)
@@ -34,5 +34,5 @@ jobs:
           context: .
           push: true
           tags: |
-            sebastianslupny/pwcho_zad1:arm64
+            sebastianslupny4/pwcho_zad1:arm64
           platforms: linux/arm64/v8ź
