@@ -35,4 +35,4 @@ jobs:
           push: true
           tags: |
             sebastianslupny4/pwcho_zad1:arm64
-          platforms: linux/arm64/v8ź
+          platforms: linux/arm64/v8
