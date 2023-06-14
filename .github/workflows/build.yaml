@@ -23,13 +23,10 @@ jobs:
         uses: docker/login-action@v2
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
-          password: ${{ secrets.DOCKER_TOKEN }}
-
-      - name: Set Docker Hub credentials in environment
-        run: echo "DOCKER_USERNAME=${{ secrets.DOCKER_USERNAME }}" >> $GITHUB_ENV_FILE
+          password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Build and push Docker image (linux/amd64)
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v2
         with:
           context: .
           push: true
@@ -38,7 +35,7 @@ jobs:
           platforms: linux/amd64
 
       - name: Build and push Docker image (linux/arm64/v8)
-        uses: docker/build-push-action@v3
+        uses: docker/build-push-action@v2
         with:
           context: .
           push: true
